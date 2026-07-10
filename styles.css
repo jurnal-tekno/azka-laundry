@@ -75,7 +75,7 @@ a {
 
 
 .hero-image-card {
-  width: 200px;
+  width: 150px;
   aspect-ratio: 1 / 1;
   border-radius: 30px;
   overflow: hidden;
@@ -92,13 +92,11 @@ a {
 }
 
 .hero-gallery {
-  position: absolute;
-  top: 24px;
-  left: 24px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 200px));
-  gap: 18px;
-  z-index: 1;
+  width: min(100%, 480px);
+  grid-template-columns: repeat(3, minmax(0, 150px));
+  gap: 14px;
+  margin: 20px auto 0;
 }
 
 .hero-grid {
@@ -653,6 +651,22 @@ a {
 }
 
 @media (max-width: 980px) {
+  .hero-gallery {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 112px));
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .hero-image-card {
+    width: 112px;
+    min-width: 112px;
+  }
+
+  .hero {
+    padding-top: 48px;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -663,6 +677,22 @@ a {
 }
 
 @media (max-width: 720px) {
+  .hero-gallery {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 96px));
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .hero-image-card {
+    width: 96px;
+    min-width: 96px;
+  }
+
+  .hero {
+    padding-top: 30px;
+  }
+
   .page-shell {
     width: min(100%, calc(100% - 24px));
   }
