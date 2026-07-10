@@ -11,7 +11,10 @@
     <header class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
-          <div class="badge">AZKA LAUNDRY</div>
+          <div class="badge">
+            <img class="badge-icon" src="https://imagizer.imageshack.com/img924/1782/C81PBy.png" alt="Washing machine photo (PNG)" />
+            <span>AZKA LAUNDRY</span>
+          </div>
           <h1>Laundry Cepat, Bersih, dan Stylish untuk Semua</h1>
           <p>Solusi laundry modern di Berastagi dengan layanan antar jemput cepat, wangi tahan lama, dan hasil rapi profesional.</p>
           <div class="hero-actions">
@@ -145,10 +148,16 @@
         <div class="location-card">
           <h3>Berastagi</h3>
           <p>Jl. Jamin Ginting, Sempajaya, Kec. Berastagi, Kabupaten Karo, Sumatera Utara 22152</p>
+          <div class="location-actions">
+            <a class="btn btn-secondary" href="https://www.google.com/search?sca_esv=545a1b24d23e7d65&sxsrf=APpeQnvfBAMRIjIu_HGe_LIWvN3EwF1XNw:1783665441059&q=azka+laundry+lau+gumba+berastagi&source=lnms&fbs=ABfTbFUREeWHewRbiLxOiD4FwIwxiL6jo1iIkxThy_7k-7bPpeXmhfoYNNivDCxhfgZYfGlTvrLvSLVowGOEGZK5jpSa1wYu-UsuPFJt6MarqdyMk6ahFWonkLnIERERsgSPXRQ-QjSej_hwF7o3pp0_JhHAuLTcROR5DDgSdaLf9y-LOw-iBsZL1RKwTdEvGsjwe8htUaR-jyBXo_cu3C7Np8mUfc6pxwjDJLAso3NbDfLEBlRNpq0&sa=X&ved=2ahUKEwjTpIzIv8eVAxXizjgGHYsIIigQ0pQJegQIChAB&biw=1366&bih=641&dpr=1&zx=1783665445223" target="_blank" rel="noopener">Buka di Maps</a>
+          </div>
         </div>
         <div class="location-card">
           <h3>Desa Lau Gumba</h3>
           <p>Desa Lau Gumba, belakang Bukit Kubu Berastagi</p>
+          <div class="location-actions">
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Desa+Lau+Gumba,+Berastagi" target="_blank" rel="noopener">Buka di Maps</a>
+          </div>
         </div>
       </div>
     </section>
@@ -162,5 +171,32 @@
       <a class="btn btn-primary btn-3d btn-large" href="https://wa.me/6282171136674?text=Halo%20AZKA%20Laundry,%20saya%20ingin%20pesan%20layanan%20laundry." target="_blank" rel="noreferrer">Chat WA</a>
     </section>
   </div>
+</div>
+
+  <script>
+    (function(){
+      const items = document.querySelectorAll('.feature-card, .location-card, .hero-stats > div');
+      if (!items.length) return;
+
+      items.forEach(el => {
+        el.addEventListener('mousemove', e => {
+          const rect = el.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const cx = rect.width / 2;
+          const cy = rect.height / 2;
+          const dx = (x - cx) / cx; // -1 .. 1
+          const dy = (y - cy) / cy; // -1 .. 1
+          const rotateX = (dy * 6).toFixed(2);
+          const rotateY = (-dx * 8).toFixed(2);
+          el.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(6px)`;
+        });
+
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
